@@ -1,10 +1,8 @@
-const http = require('http');
-
-const hostname = '127.0.0.1';
-const port = 3000;
+const express = require('express');
+const route = express.Router();
 
 
-const server = http.createServer((req, res) => {
+route.get('/api/movies', (req, res) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');
     var request = require('request');
@@ -33,6 +31,4 @@ const server = http.createServer((req, res) => {
     });
 });
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/movies`);
-});
+module.exports = route;

@@ -25,7 +25,14 @@ route.get('/', (req, res) => {
      req.socket.remoteAddress ||
      (req.connection.socket ? req.connection.socket.remoteAddress : null);
     var date = new Date();
-    pool.query('SELECT EXISTS ( SELECT FROM information_schema.tables WHERE  table_schema = \'schema_name\' AND table_name = \'comments\' );', (error, result) => {
+    pool.query('SELECT EXISTS ( SELECT FROM information_schema.tables WHERE  table_schema = \'schema_name\' AND table_name = \'comments\' )', (error, result) => {
+        if (result['rows'][0]['exists'] == false){
+            pool.query('CREATE TABLE comments (ID INT(11), MovieID INT(11), Comment TEXT, IPAddress TEXT, TimeNumber BIGINT(20), DateCreated TEXT)', (cr_err, cr_res) => {
+                if (cr_err != undefined){
+                    console.log(cr_err);
+                }
+            });
+        }
         res.end(((result['rows'][0]['exists'] == false) ? 'false' : 'true') + ' - ' + ip + ' - '+ date.getTime() + ' - '+ date.toUTCString());
         pool.end();
     });

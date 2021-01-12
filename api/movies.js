@@ -2,7 +2,7 @@ const express = require('express');
 const route = express.Router();
 
 
-route.get('/api/movies', (req, res) => {
+route.get('/', (req, res) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');
     var request = require('request');
@@ -30,5 +30,6 @@ route.get('/api/movies', (req, res) => {
         res.end(JSON.stringify(repo));
     });
 });
+
 
 module.exports = route;

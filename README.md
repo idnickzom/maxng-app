@@ -25,7 +25,7 @@ The response from calling this API includes these properties:
 
 # End Point 2: Add Anonymous Comment
 
-End Point URL: https://maxng-app.herokuapp.com/api/comment/?movie_id={movie_id}&comment={comment}
+End Point URL: https://maxng-app.herokuapp.com/api/comment/?movie_id={movie_id}&comment={comment}<br>
 Example: https://maxng-app.herokuapp.com/api/comment/?movie_id=1&comment=Star%20wars%20is%20a%20great%20movie.
 
 Request Method: <b>GET</b>
@@ -88,7 +88,7 @@ The response from calling this API includes these properties in the data object:
 
 # End Point 5: Sort, Filter and Search for Character Lists per Page
 
-End Point URL: https://maxng-app.herokuapp.com/api/characters/?page={page}&sort_type={sort_type}&order={order}&gender={gender}&search={search}
+End Point URL: https://maxng-app.herokuapp.com/api/characters/?page={page}&sort_type={sort_type}&order={order}&gender={gender}&search={search}<br>
 Example: https://maxng-app.herokuapp.com/api/characters?sort_type=name&order=asc&page=1
 
 Request Method: <b>GET</b>

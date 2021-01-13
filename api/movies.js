@@ -1,6 +1,8 @@
+const pool = require('./connection');
 const express = require('express');
 const route = express.Router();
 
+var repo = {};
 
 route.get('/', (req, res) => {
     res.statusCode = 200;
@@ -15,19 +17,21 @@ route.get('/', (req, res) => {
 
     }
     };
-    request(options, function (error, response) {
+    request(options, async function (error, response) {
     if (error) throw new Error(error);
         var data = JSON.parse(response.body);
-        var repo = {};
         repo['data'] = [];
         for (var i = 0; i < data['results'].length; i++){
           repo['data'][i] = {};
+          repo['data'][i]['movie_id'] = (i + 1);
           repo['data'][i]['title'] = data['results'][i]['title'];
           repo['data'][i]['opening_crawl'] = data['results'][i]['opening_crawl'];
           repo['data'][i]['release_date'] = data['results'][i]['release_date'];
-          repo['data'][i]['no_comments'] = 0;
+          // OBTAIN NUMBER OF COMMENTS
+          var result = await pool.query('SELECT COUNT(id) as num FROM comments WHERE movie_id = \''+(i + 1)+'\'');
+          repo['data'][i]['no_comments'] = result['rows'][0]['num'];
         }
-        res.end(JSON.stringify(repo));
+        res.send((repo));
     });
 });
 

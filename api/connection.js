@@ -1,5 +1,3 @@
-// THIS IS MY TESTING ENVIRONMENT FOR THE DB
-
 const { Pool } = require('pg');
 const pool = new Pool({
   user: 'zeiunhannaaxhr',
@@ -12,8 +10,4 @@ const pool = new Pool({
   }
 });
 
-pool.query('SELECT * FROM comments ORDER BY id DESC', (err, res) => {
-  console.log(err, res) 
-});
-
-pool.end();
+module.exports = pool;

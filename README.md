@@ -26,7 +26,7 @@ The response from calling this API includes these properties:
 # End Point 2: Add Anonymous Comment
 
 End Point URL: https://maxng-app.herokuapp.com/api/comment/?movie_id={movie_id}&comment={comment}
-Example: https://maxng-app.herokuapp.com/api/comment/?movie_id=1&comment=Star wars is a great movie.
+Example: https://maxng-app.herokuapp.com/api/comment/?movie_id=1&comment=Star%20wars%20is%20a%20great%20movie.
 
 Request Method: <b>GET</b>
 

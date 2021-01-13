@@ -3,8 +3,8 @@
 /api/comments/
 /api/comments/movies/:movie_id
 /api/characters/?page={page}&sort_type={sort_type}&order={order}&gender={gender}&search={search}
-    page
+    page: page no of the character list (people)
     sort_type: name or height
     order: asc, desc
-    gender: male, female (type must be filter)
-    search: any keyword (type must be search)
+    gender: male, female, n/a (optional)
+    search: any keyword (optional)

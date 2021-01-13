@@ -106,12 +106,10 @@ The response from the API call consists of:
 <ui>
   <li><b>count</b>: This displays the number of characters in the list</li>
   <li><b>total_height</b></li>
-  <li>
     <ul>
       <li><b>cm</b>: The value of the total height in cm</li>
       <li><b>ft_in</b>: The value of the total height in feet and inches</li>
     </ul>
-  </li>
 </ui>
 
 

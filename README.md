@@ -116,6 +116,6 @@ The response from the API call consists of:
 # Error Response Template
 
 {
-    "status": xxx,
-    "message": xx-xx-xx
+    "status": "xxx",
+    "message": "xx-xx-xx"
 }

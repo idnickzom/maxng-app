@@ -77,10 +77,25 @@ route.get('/', async (req, res) => {
             people.sort((a, b) => (parseInt(a.height) < parseInt(b.height)) ? 1 : -1);
         }
 
-        res.send({count: people.length, data: people});
+        var total_height = 0;
+        for (var i = 0; i < people.length; i++){
+            total_height = total_height + parseFloat(people[i]['height']);
+        }
+
+        var total_height_cm = total_height+" cm";
+        var total_height_ft_in = toFeetInches(total_height);
+
+        res.send({count: people.length, total_height: {cm: total_height_cm, ft_in: total_height_ft_in}, data: people});
 
     });
     
 });
+
+function toFeetInches(n) {
+    var realFeet = ((n * 0.393700) / 12);
+    var feet = Math.floor(realFeet);
+    var inches = Math.round((realFeet - feet) * 12);
+    return feet + " ft and " + inches + ' inches';
+}
 
 module.exports = route;
